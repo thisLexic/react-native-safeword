@@ -26,7 +26,6 @@ export default class HomeScreen extends React.Component {
 
     componentDidMount() {
         const { navigation } = this.props;
-        this.getAllDetails();
         navigation.addListener("willFocus", () => {
           this.getAllDetails();
         });
@@ -58,7 +57,11 @@ export default class HomeScreen extends React.Component {
           details = JSON.parse(item[1]);
           return (
             <TouchableOpacity
-              onPress={() => {}}
+              onPress={() => {
+                this.props.navigation.navigate("ReadScreen", {
+                  key: item[0]
+                });                  
+              }}
             >
               <Card style={styles.listItem}>
                 <View style={styles.iconContainer}>
@@ -76,7 +79,7 @@ export default class HomeScreen extends React.Component {
             </TouchableOpacity>
           );
         }}
-        keyExtractor={(item, index) => item[0].toString()}
+        keyExtractor={(item, index) => item[0]}
       />          
           <TouchableOpacity
           style={styles.floatButton}
