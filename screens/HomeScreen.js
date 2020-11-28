@@ -6,17 +6,42 @@ import {
   StyleSheet
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default class HomeScreen extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        data: []
+      };
+    }
+
 
   static navigationOptions = {
     title: "Home"
   };
 
+
+    componentDidMount() {
+        const { navigation } = this.props;
+        this.getAllDetails();
+        // navigation.addListener("willFocus", () => {
+        //   this.getAllDetails();
+        // });
+      }
+
+      getAllDetails = async () => {
+        const keys = await AsyncStorage.getAllKeys()
+        console.log(keys)
+      };
+
+
+      
   render() {
     return (
       <View style={styles.container}>
-          <Text>Home</Text>
+            <Text>Home</Text>
+          <Text></Text>
           <TouchableOpacity
           style={styles.floatButton}
           onPress={() => {
