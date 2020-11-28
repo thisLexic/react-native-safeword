@@ -3,8 +3,10 @@ import {
   Text,
   View,
   TouchableOpacity,
+  FlatList,
   StyleSheet
 } from "react-native";
+import { Card } from "native-base";
 import { Entypo } from "@expo/vector-icons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -25,14 +27,24 @@ export default class HomeScreen extends React.Component {
     componentDidMount() {
         const { navigation } = this.props;
         this.getAllDetails();
-        // navigation.addListener("willFocus", () => {
-        //   this.getAllDetails();
-        // });
+        navigation.addListener("willFocus", () => {
+          this.getAllDetails();
+        });
       }
 
       getAllDetails = async () => {
         const keys = await AsyncStorage.getAllKeys()
-        console.log(keys)
+        const details = await AsyncStorage.multiGet(keys)
+        details.sort(function(a, b) {
+            if (JSON.parse(a[1]).website < JSON.parse(b[1]).website) {
+              return -1;
+            }
+            if (JSON.parse(a[1]).website > JSON.parse(b[1]).website) {
+              return 1;
+            }
+            return 0;
+        })
+        this.setState({ data: details })
       };
 
 
@@ -40,8 +52,32 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-            <Text>Home</Text>
-          <Text></Text>
+      <FlatList
+        data={this.state.data}
+        renderItem={({ item }) => {
+          details = JSON.parse(item[1]);
+          return (
+            <TouchableOpacity
+              onPress={() => {}}
+            >
+              <Card style={styles.listItem}>
+                <View style={styles.iconContainer}>
+                  <Text style={styles.contactIcon}>
+                    {details.website[0].toUpperCase()}
+                  </Text>
+                </View>
+                <View style={styles.infoContainer}>
+                  <Text style={styles.infoText}>
+                    {details.website}
+                  </Text>
+                  <Text style={styles.infoText}>{details.account}</Text>
+                </View>
+              </Card>
+            </TouchableOpacity>
+          );
+        }}
+        keyExtractor={(item, index) => item[0].toString()}
+      />          
           <TouchableOpacity
           style={styles.floatButton}
           onPress={() => {
@@ -69,7 +105,7 @@ const styles = StyleSheet.create({
       height: 50,
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: "#B83227",
+      backgroundColor: "#74B9FF",
       borderRadius: 100
     },
     contactIcon: {
@@ -86,7 +122,6 @@ const styles = StyleSheet.create({
       paddingTop: 2
     },
     floatButton: {
-      borderWidth: 1,
       borderColor: "rgba(0,0,0,0.2)",
       alignItems: "center",
       justifyContent: "center",
@@ -95,7 +130,7 @@ const styles = StyleSheet.create({
       bottom: 10,
       right: 10,
       height: 60,
-      backgroundColor: "#487EB0",
+      backgroundColor: "#74B9FF",
       borderRadius: 100
     }
   });
