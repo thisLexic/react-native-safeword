@@ -65,7 +65,7 @@ export default class ReadScreen extends React.Component {
       const alphaNumeric1 = this.makeAlphaNumeric(hashed1)
       const hashed2 = await sha512(alphaNumeric1);
       const alphaNumeric2 = this.makeAlphaNumeric(hashed2)
-      return alphaNumeric2
+      return alphaNumeric2.substr(20, 15)
     }
 
     makeAlphaNumeric = hash => {
@@ -93,7 +93,7 @@ export default class ReadScreen extends React.Component {
       for (var i = 0; i < hashArray.length; i++) {
         alphaNumericPassword += alphaNumericMap[hashArray[i]]
       }
-      return alphaNumericPassword.substr(20, 15)
+      return alphaNumericPassword
     }
 
     editOrDelete = key => {
