@@ -7,23 +7,33 @@ At the moment, the application is still in its prototype phase. It is usable but
 ## Images of the App
 Home Page - This is where end users see all their websites and accounts
 <br/>
-<img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/home.PNG" width="250">
+<p align="center">
+<img align="center" src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/home.PNG" width="250">
+</p>
 
 Add Page - This is where end users can add another website and account
 <br/>
+<p align="center">
 <img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/add.PNG" width="250">
+</p>
 
 Read Page - This is where end users can view their website and account entry. They can also enter their safeword here then copy their password afterwards.
 <br/>
+<p align="center">
 <img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/read.PNG" width="250">
+</p>
 
 Copy Pop Up - This is the pop up that shows up once a valid safeword is provided
 <br/>
+<p align="center">
 <img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/copy.PNG" width="250">
+</p>
 
 Edit Page - This is where the end user can change his/her password by incrementing the version for the account.
 <br/>
+<p align="center">
 <img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/edit.PNG" width="250">
+</p>
 
 ## How it works
 The application takes in the following values from the end user:
