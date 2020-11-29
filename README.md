@@ -9,15 +9,19 @@ Home Page - This is where end users see all their websites and accounts
 <img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/home.PNG" width="250">
 
 Add Page - This is where end users can add another website and account
+<br/>
 <img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/add.PNG" width="250">
 
 Read Page - This is where end users can view their website and account entry. They can also enter their safeword here then copy their password afterwards.
+<br/>
 <img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/read.PNG" width="250">
 
 Copy Pop Up - This is the pop up that shows up once a valid safeword is provided
+<br/>
 <img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/copy.PNG" width="250">
 
 Edit Page - This is where the end user can change his/her password by incrementing the version for the account.
+<br/>
 <img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/edit.PNG" width="250">
 
 ## How it works
