@@ -101,7 +101,7 @@ export default class ReadScreen extends React.Component {
           text: "Delete",
           onPress: () => {
             Alert.alert("Are you sure?", "You are attempting to delete an account", [{
-                text: "Yes",
+                text: "Delete",
                 onPress: async () => {
                   await AsyncStorage.removeItem(key);
                   this.props.navigation.goBack();

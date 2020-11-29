@@ -4,7 +4,8 @@ import {
   View,
   StyleSheet,
   Keyboard,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Alert
 } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Form, Item, Input, Label, Button } from "native-base";
@@ -44,21 +45,24 @@ export default class EditScreen extends React.Component {
       this.state.website !== "" &&
       this.state.account !== ""
     ) {
-      var contact = {
-        fname: this.state.fname,
-        lname: this.state.lname,
-        phone: this.state.phone,
-        email: this.state.email,
-        address: this.state.address
-      };
-      const key = this.state.key
-      await AsyncStorage.mergeItem(key, JSON.stringify(contact))
-        .then(() => {
-          this.props.navigation.goBack();
-        })
-        .catch(eror => {
-          console.log(error);
-        });
+      Alert.alert("Warning!", "Editing anything will change your password!", [{
+          text: "Edit",
+          onPress: async () => {
+            var details = {
+              website: this.state.website,
+              account: this.state.account
+            };
+            const key = this.state.key
+            await AsyncStorage.mergeItem(key, JSON.stringify(details))
+            this.props.navigation.goBack();
+          }
+        },
+        {
+          text: "Cancel",
+          onPress: () => {}
+        }
+        ]
+      )
     } else{
       Alert.alert("All fields are required!");
     }
