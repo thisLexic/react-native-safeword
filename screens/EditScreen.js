@@ -16,6 +16,7 @@ export default class EditScreen extends React.Component {
     this.state = {
       website: "",
       account: "",
+      version: "",
       key: ""
     };
   }
@@ -43,14 +44,16 @@ export default class EditScreen extends React.Component {
   updateDetails = async () => {
     if (
       this.state.website !== "" &&
-      this.state.account !== ""
+      this.state.account !== "" &&
+      this.state.version !== ""
     ) {
       Alert.alert("Warning!", "Editing anything will change your password!", [{
           text: "Edit",
           onPress: async () => {
             var details = {
               website: this.state.website,
-              account: this.state.account
+              account: this.state.account,
+              version: this.state.version
             };
             const key = this.state.key
             await AsyncStorage.mergeItem(key, JSON.stringify(details))
@@ -95,6 +98,16 @@ export default class EditScreen extends React.Component {
                 keyboardType="default"
                 onChangeText={account => this.setState({ account })}
                 value={this.state.account}
+              />
+            </Item>
+            <Item style={styles.inputItem}>
+              <Label>Version:</Label>
+              <Input
+                autoCorrect={true}
+                autoCapitalize="none"
+                keyboardType="default"
+                onChangeText={version => this.setState({ version })}
+                value={this.state.version}
               />
             </Item>
           </Form>

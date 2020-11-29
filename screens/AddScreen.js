@@ -30,7 +30,8 @@ export default class AddScreen extends React.Component {
       ) {
         var details = {
           website: this.state.website,
-          account: this.state.account
+          account: this.state.account,
+          version: "1"
         };
   
         await AsyncStorage.setItem(Date.now().toString(), JSON.stringify(details))

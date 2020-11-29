@@ -23,6 +23,7 @@ export default class ReadScreen extends React.Component {
       this.state = {
         website: "Missing Website",
         account: "Missing Account",
+        version: "0",
         key: "Missing Key",
         safeword: ""
       };
@@ -59,7 +60,7 @@ export default class ReadScreen extends React.Component {
     
     
     getPassword = async () => {
-      const text = `${this.state.website} ${this.state.account} ${this.state.safeword}`
+      const text = `${this.state.website} ${this.state.account} ${this.state.safeword} ${this.state.version}`
       const hashed1 = await sha512(text);
       const alphaNumeric1 = this.makeAlphaNumeric(hashed1)
       const hashed2 = await sha512(alphaNumeric1);
@@ -169,7 +170,7 @@ export default class ReadScreen extends React.Component {
             this.copyPassword();
             }}
         >
-            <Text style={styles.buttonText}>Get Password</Text>
+            <Text style={styles.buttonText}>Get Version {this.state.version} Password</Text>
         </Button>
         <TouchableOpacity
           style={styles.floatButton}
