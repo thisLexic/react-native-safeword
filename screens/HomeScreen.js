@@ -4,7 +4,8 @@ import {
   View,
   TouchableOpacity,
   FlatList,
-  StyleSheet
+  StyleSheet,
+  Dimensions
 } from "react-native";
 import { Card } from "native-base";
 import { Entypo } from "@expo/vector-icons";
@@ -53,6 +54,14 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
       <FlatList
         data={this.state.data}
+        ListEmptyComponent={
+          <View style={styles.emptyContainer}>
+            <Text style={styles.emptyText}>
+              No Websites to display
+            </Text>
+            <Text style={styles.emptyText}>Please add one</Text>
+          </View>    
+        }
         renderItem={({ item }) => {
           details = JSON.parse(item[1]);
           return (
@@ -121,6 +130,18 @@ const styles = StyleSheet.create({
     infoText: {
       fontSize: 16,
       fontWeight: "400",
+      paddingLeft: 10,
+      paddingTop: 2
+    },
+    emptyContainer: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      height: Dimensions.get("window").height,
+    },
+    emptyText: {
+      fontSize: 20,
+      fontWeight: "200",
       paddingLeft: 10,
       paddingTop: 2
     },
