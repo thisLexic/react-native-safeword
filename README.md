@@ -6,6 +6,7 @@ At the moment, the application is still in its prototype phase. It is usable but
 
 ## Images of the App
 Home Page - This is where end users see all their websites and accounts
+<br/>
 <img src="https://raw.githubusercontent.com/thisLexic/react-native-safeword/main/app_images/home.PNG" width="250">
 
 Add Page - This is where end users can add another website and account
