@@ -59,7 +59,9 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.emptyText}>
               No Websites to display
             </Text>
-            <Text style={styles.emptyText}>Please add one</Text>
+            <Text style={styles.emptyText}>
+              Please add one
+            </Text>
           </View>    
         }
         renderItem={({ item }) => {
@@ -137,11 +139,11 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: "center",
       justifyContent: "center",
-      height: Dimensions.get("window").height,
+      height: 500,
     },
     emptyText: {
       fontSize: 20,
-      fontWeight: "200",
+      fontWeight: "400",
       paddingLeft: 10,
       paddingTop: 2
     },
