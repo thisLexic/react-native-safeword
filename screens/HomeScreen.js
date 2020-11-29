@@ -35,10 +35,10 @@ export default class HomeScreen extends React.Component {
         const keys = await AsyncStorage.getAllKeys()
         const details = await AsyncStorage.multiGet(keys)
         details.sort(function(a, b) {
-            if (JSON.parse(a[1]).website < JSON.parse(b[1]).website) {
+            if (JSON.parse(a[1]).website.toUpperCase() < JSON.parse(b[1]).website.toUpperCase()) {
               return -1;
             }
-            if (JSON.parse(a[1]).website > JSON.parse(b[1]).website) {
+            if (JSON.parse(a[1]).website.toUpperCase() > JSON.parse(b[1]).website.toUpperCase()) {
               return 1;
             }
             return 0;
