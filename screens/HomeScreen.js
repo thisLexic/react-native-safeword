@@ -59,7 +59,7 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.emptyText}>
               No Websites to display
             </Text>
-            <Text style={styles.emptyText}>
+            <Text style={[styles.emptyText, {fontSize:18}]}>
               Please add one
             </Text>
           </View>    

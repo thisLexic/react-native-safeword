@@ -42,7 +42,7 @@ export default class AddScreen extends React.Component {
             console.log(error);
           });
       } else {
-        Alert.alert("All fields are required!");
+        Alert.alert("All fields are required!", "Please enter your value for Website and Account");
       }
     };
 
@@ -62,6 +62,7 @@ export default class AddScreen extends React.Component {
                             autoCorrect={true}
                             autoCapitalize="none"
                             keyboardType="default"
+                            placeholder="(Ex: facebook.com)"
                             onChangeText={website => this.setState({ website })}
                         />
                     </Item>
@@ -71,6 +72,7 @@ export default class AddScreen extends React.Component {
                             autoCorrect={true}
                             autoCapitalize="none"
                             keyboardType="default"
+                            placeholder="(Ex: george@gmail.com)"
                             onChangeText={account => this.setState({ account })}
                         />
                     </Item>
