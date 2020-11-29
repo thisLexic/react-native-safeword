@@ -2,6 +2,7 @@ import React from "react";
 import {
   Text,
   View,
+  ScrollView,
   StyleSheet,
   Keyboard,
   TouchableWithoutFeedback,
@@ -78,7 +79,7 @@ export default class EditScreen extends React.Component {
           Keyboard.dismiss();
         }}
       >
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
           <Form>
             <Item style={styles.inputItem}>
               <Label>Website:</Label>
@@ -105,7 +106,7 @@ export default class EditScreen extends React.Component {
               <Input
                 autoCorrect={true}
                 autoCapitalize="none"
-                keyboardType="default"
+                keyboardType="decimal-pad"
                 onChangeText={version => this.setState({ version })}
                 value={this.state.version}
               />
@@ -121,7 +122,8 @@ export default class EditScreen extends React.Component {
           >
             <Text style={styles.buttonText}>Update</Text>
           </Button>
-        </View>
+          <View style={styles.empty}></View>
+        </ScrollView>
       </TouchableWithoutFeedback>
     );
   }
@@ -145,5 +147,9 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontWeight: "bold"
+  },
+  empty: {
+    height: 500,
+    backgroundColor: "#FFF"
   }
 });
